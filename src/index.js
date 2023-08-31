@@ -14,13 +14,15 @@ const homeTab = document.createElement('li');
 const menuTab = document.createElement('li');
 const contactTab = document.createElement('li');
 
+let tabs = [homeTab, menuTab, contactTab]
+
 homeTab.innerText = "Home";
 menuTab.innerText = "Menu";
 contactTab.innerText = "Contact";
 
-ulist.appendChild(homeTab)
-ulist.appendChild(menuTab)
-ulist.appendChild(contactTab)
+tabs.forEach((e)=> {
+    ulist.appendChild(e)
+})
 
 nav.appendChild(ulist);
 header.appendChild(nav);
@@ -28,7 +30,7 @@ header.appendChild(nav);
 document.body.insertBefore(header, contentDiv);
 
 let currentSelected = 0;
-let tabs = [homeTab, menuTab, contactTab]
+
 
 tabs.forEach(function(i){
     i.addEventListener("click", function() {
@@ -38,6 +40,8 @@ tabs.forEach(function(i){
             return e !== currentSelected;
         })
         styleButtons(i, notSelectedArr);
+        console.log(currentSelected)
+        loadPage(currentSelected)
     });
 })
 
@@ -53,4 +57,14 @@ function styleButtons(selected, arr) {
         element.style.backgroundColor = "white"
         element.style.color = "black"
     });
+}
+
+function loadPage(selected) {
+    if(selected.innerText == 'Home') {
+        homePage();
+    } else if(selected.innerText == 'Menu') {
+        menuPage();
+    } else {
+        contactPage();
+    }
 }

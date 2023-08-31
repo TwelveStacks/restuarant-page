@@ -1,12 +1,8 @@
-export default function homePage() {
+export default function menuPage() {
     const contentDiv = document.getElementById("content");
 
     const pageHeader = document.createElement("h1");
-    const description = document.createElement('p');
     pageHeader.classList.add('title');
-    description.classList.add('desc');
-    pageHeader.innerText = "Quick Bites";
-    description.innerText = "At Quick Bites, we're redefining the fast food experience by bringing you mouthwatering flavors, lightning-fast service, and a dash of innovation with every bite. Our mission is simple: to deliver quick, delicious, and quality meals that keep up with your on-the-go lifestyle without compromising on taste or nutrition."
+    pageHeader.innerText = "Menu";
     contentDiv.appendChild(pageHeader);
-    contentDiv.appendChild(description);
 }
