@@ -1,4 +1,4 @@
-export default function pageLoad() {
+export default function homePage() {
     const contentDiv = document.getElementById("content");
 
     const pageHeader = document.createElement("h1");
