@@ -4,33 +4,37 @@ import contactPage from "./contactPage";
 
 import './style.css';
 
+// Add navbar options to DOM
 const contentDiv = document.getElementById("content")
-
 const header = document.createElement('header');
 const nav = document.createElement('nav');
-
-const ulist = document.createElement('ul');
 const homeTab = document.createElement('li');
 const menuTab = document.createElement('li');
 const contactTab = document.createElement('li');
-
+const headerText = document.createElement('h1');
 let tabs = [homeTab, menuTab, contactTab]
 
+headerText.innerText = "Quick Bites"
 homeTab.innerText = "Home";
 menuTab.innerText = "Menu";
 contactTab.innerText = "Contact";
 
+headerText.classList.add('headerText');
+
 tabs.forEach((e)=> {
-    ulist.appendChild(e)
+    e.classList.add('notSelected')
+    nav.appendChild(e);
 })
 
-nav.appendChild(ulist);
+header.appendChild(headerText)
 header.appendChild(nav);
 
 document.body.insertBefore(header, contentDiv);
 
-let currentSelected = 0;
-
+// Set initial selected tab as home tab
+let currentSelected = homeTab;
+homePage();
+currentSelected.classList.add('currentSelected')
 
 tabs.forEach(function(i){
     i.addEventListener("click", function() {
@@ -50,12 +54,11 @@ function resetPage() {
 }
 
 function styleButtons(selected, arr) {
-    selected.style.backgroundColor = "red";
-    selected.style.color = "white";
+    selected.classList.add('currentSelected')
 
     arr.forEach(element => {
-        element.style.backgroundColor = "white"
-        element.style.color = "black"
+        element.classList.remove('currentSelected')
+        element.classList.add('notSelected')
     });
 }
 
