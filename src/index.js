@@ -31,6 +31,25 @@ header.appendChild(nav);
 
 document.body.insertBefore(header, contentDiv);
 
+// Create dropdown menu
+const dropdownMenu = document.createElement('div');
+
+dropdownMenu.classList.add('toggle-btn');
+
+for (let i = 0; i <= 3; i++) {
+    const div = document.createElement('div');
+    dropdownMenu.appendChild(div);
+}
+
+// Dropdown display
+const dropdownDisplay = document.querySelector('.dropdown-menu');
+
+dropdownMenu.onclick = function () {
+    dropdownDisplay.classList.toggle('open');
+}
+
+header.appendChild(dropdownMenu);
+
 // Set initial selected tab as home tab
 let currentSelected = homeTab;
 homePage();
@@ -54,11 +73,11 @@ function resetPage() {
 }
 
 function styleButtons(selected, arr) {
-    selected.classList.add('currentSelected')
+    selected.classList.add('currentSelected');
 
     arr.forEach(element => {
-        element.classList.remove('currentSelected')
-        element.classList.add('notSelected')
+        element.classList.remove('currentSelected');
+        element.classList.add('notSelected');
     });
 }
 
