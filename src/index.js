@@ -41,12 +41,29 @@ for (let i = 0; i <= 3; i++) {
     dropdownMenu.appendChild(div);
 }
 
-// Dropdown display
-const dropdownDisplay = document.querySelector('.dropdown-menu');
+// Create dropdown display
+const dropdownDisplay = document.createElement('div');
+dropdownDisplay.classList.add('dropdown-menu');
+const dropDownItems = ['Home', 'Menu', 'Contact'];
+
+dropDownItems.forEach((item)=> {
+    let li = document.createElement('li');
+    li.innerText = item;
+    li.addEventListener('click', function() {
+        resetPage();
+        loadPage(li);
+    });
+    dropdownDisplay.appendChild(li);
+});
+
+document.body.insertBefore(dropdownDisplay, header);
+
+// Check if drop down button is clicked
 
 dropdownMenu.addEventListener("click", function() {
     dropdownDisplay.classList.toggle('open');
-    console.log('clicked');
+
+    dropdownMenu.classList.toggle('open');
 });
 
 window.addEventListener("resize", function() {
