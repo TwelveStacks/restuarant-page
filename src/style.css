@@ -187,6 +187,12 @@ nav {
     background-color: var(--text-color);
 }
 
+/* @media screen and (min-width: 1001px) {
+    .dropdown-menu.open {
+        display: none;
+    }
+} */
+
 @media screen and (max-width: 1000px) {
     nav {
         display: none;
@@ -198,6 +204,10 @@ nav {
     }
 
     .toggle-btn {
+        display: flex;
+    }
+
+    .dropdown-menu.open {
         display: flex;
     }
 }

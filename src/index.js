@@ -44,9 +44,15 @@ for (let i = 0; i <= 3; i++) {
 // Dropdown display
 const dropdownDisplay = document.querySelector('.dropdown-menu');
 
-dropdownMenu.onclick = function () {
+dropdownMenu.addEventListener("click", function() {
     dropdownDisplay.classList.toggle('open');
-}
+    console.log('clicked');
+});
+
+window.addEventListener("resize", function() {
+    dropdownDisplay.classList.remove('open');
+    console.log('Resize event read')
+})
 
 header.appendChild(dropdownMenu);
 
